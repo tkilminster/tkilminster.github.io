@@ -585,6 +585,8 @@ a {
 }
 
 #annoCell-content {
+	overflow-y: auto;
+	overflow-x: hidden;
 	text-align: center;
 	font-family: Lane;
 	font-weight: bold;
