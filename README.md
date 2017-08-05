@@ -1,2 +1,2 @@
 # Tom Kilminster Portfolio Website 
-*https://thirty.degree*
+*http://tomkilminster.uk/* OR *http://tomkilminster.co.uk/*
