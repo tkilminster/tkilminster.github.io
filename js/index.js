@@ -292,18 +292,17 @@ function objFade() {
 }
 
 function loadIntro() {
-	var animation = bodymovin.loadAnimation({
+	var animation = {
 		container: document.getElementById('white-banner'),
 		renderer: 'svg',
 		prerender: true,
 		loop: false,
 		autoplay: true,
 		path: 'data.json'
-	})
+	};
 
-	animation.addEventListener('complete', setTimeout(function(){
-		objFade();
-	}, 2200));
+	var landAnimation = bodymovin.loadAnimation(animation);
+	landAnimation.addEventListener('complete', objFade);
 }
 
 $(window).resize(function() {
