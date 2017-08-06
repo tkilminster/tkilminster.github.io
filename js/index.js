@@ -4,11 +4,17 @@
 
 $(document).ready(function() {
 
+	window.onbeforeunload = function () {
+		window.scrollTo(0, 0);
+	}
 
+	$(window).disablescroll({
+		handleScrollbar: false
+	});
 
 	loadIntro();
 	textSize();
-	objFade();
+
 
 	animateArrow();
 
@@ -27,6 +33,9 @@ $(document).ready(function() {
 	moreInfo();
 	
 	$("#down").click(function() {
+		$(window).disablescroll({
+			handleScrollbar: false
+		});
    		scrollToAnchor('details');
 	});
 
@@ -197,8 +206,13 @@ function locationHover(){
 }
 
 function scrollToAnchor(aid){
-    var aTag = $("a[name='"+ aid +"']");
+	var aTag = $("a[name='"+ aid +"']");
+
     $('html,body').animate({scrollTop: aTag.offset().top}, 1500);
+
+	setTimeout(function() {
+		$(window).disablescroll("undo");
+	}, 1500);
 }
 
 
@@ -256,44 +270,40 @@ function textSize() {
 	}
 
 function objFade() {
-	setTimeout(function(){
-    	$("#info.hidden").fadeIn("slow").removeClass("hidden");
+	$("#info.hidden").fadeIn("slow").removeClass("hidden");
 
-    }, 3500)
+
 
     setTimeout(function(){
     	$("#arrow-down.hidden").fadeIn("slow").removeClass("hidden");
     	
-    }, 5000)
+    }, 1000);
 
     setTimeout(function(){
     	$(".path").fadeIn("slow").removeClass("hidden");
     	
-    }, 4000)
+    }, 1500);
 
     setTimeout(function(){
     	$(".underline-path").fadeIn("fast").removeClass("hidden");
-    	
-    }, 7000)
-
-	$(window).disablescroll({
-		handleScrollbar: false
-	});
-
-	$('html, body').stop().animate({ scrollTop: 0 }, 8000,function() {
 		$(window).disablescroll("undo");
-	});
-    
+    }, 4000);
+
 }
 
 function loadIntro() {
 	var animation = bodymovin.loadAnimation({
 		container: document.getElementById('white-banner'),
 		renderer: 'svg',
+		prerender: true,
 		loop: false,
 		autoplay: true,
 		path: 'data.json'
 	})
+
+	animation.addEventListener('complete', setTimeout(function(){
+		objFade();
+	}, 2200));
 }
 
 $(window).resize(function() {
