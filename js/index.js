@@ -7,7 +7,7 @@ if (performance.navigation.type == 1) {
 
 
 /* If coming back from a project page do not show loading animation for longer than necessary */
-jQuery(window).on('load', function () {
+$(window).on("load", function() {
 
   var beenBefore = localStorage.getItem('fromSite');
   if (beenBefore === 'true') {
