@@ -1,0 +1,402 @@
+@font-face { font-family: EnlightenYourDestiny; src: url('../fonts/Enlighten your Destiny.ttf'); }
+@font-face { font-family: AntiPasto; src: url('../fonts/Antipasto-RegularTrial.ttf'); }
+@font-face { font-family: Raleway; src: url('../fonts/Raleway-Regular.ttf'); }
+@font-face { font-family: JustTellMeWhat; src: url('../fonts/Just tell me what regular (Version 2).otf'); }
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(#00ABE9, #00C5E9);
+  text-align: center;
+  overflow: hidden;
+}
+
+.container h1 {
+  font-family: EnlightenYourDestiny;
+  font-weight: normal;
+  font-size: 20rem;
+  color: white;
+}
+
+#eamonn-title {
+  font-size: 15rem;
+}
+
+and {
+  font-size: 10rem;
+}
+
+@media only screen and (max-width: 1250px) {
+  #eamonn-title {
+    font-size: 10rem;
+  }
+
+  and {
+    font-size: 6rem;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  #eamonn-title {
+    font-size: 9rem;
+  }
+
+  and {
+    font-size: 5rem;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  #eamonn-title {
+    font-size: 6rem;
+  }
+
+  and {
+    font-size: 3rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #eamonn-title {
+    font-size: 4rem;
+  }
+
+  and {
+    font-size: 2rem;
+  }
+}
+
+
+
+@media only screen and (max-width: 800px) {
+  .container h1 {
+    font-size: 15rem;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .container h1 {
+    font-size: 12rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .container h1 {
+    font-size: 7rem;
+  }
+}
+
+.text-container {
+  box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 15px -4px rgba(31, 73, 125, 0.8);
+  transition: all 1s cubic-bezier(.23,1,.32,1);
+  -webkit-transition-duration: 3s; /* Safari */
+  transition-duration: 3s;
+  border-radius: 20px;
+  padding: 15px;
+  text-align: left;
+  font-family: Raleway;
+  font-size: 18px;
+  line-height: 1.5;
+  width: 70%;
+  margin: 0 auto;
+  background: white;
+}
+
+@media only screen and (max-width: 1300px) {
+  .text-container {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .text-container {
+    top: -11px;
+    font-size: 12px;
+  }
+}
+
+h3 {
+    font-family: JustTellMeWhat;
+    font-size: 1.25rem;
+}
+
+.project-title {
+  text-align: center;
+}
+
+.line {
+  transition: all 1s cubic-bezier(.23,1,.32,1);
+  position: relative;
+  margin: 5px auto;
+  height: 3px;
+  border: none;
+  background: black;
+  width: 20%;
+  z-index: 2;
+}
+
+.lead {
+  font-family: JustTellMeWhat;
+  font-size: 4rem;
+  letter-spacing: 0.1rem;
+}
+
+@media only screen and (max-width: 1300px) {
+  .lead {
+    font-size: 3rem;
+  }
+}
+
+@media only screen and (max-width: 775px) {
+  .lead {
+    font-size: 2rem;
+  }
+}
+
+p {
+  margin: 15px 0;
+}
+
+.carousel {
+  border-radius: 15px;
+  padding: 50px 0;
+  background: black;
+  width: 100%;
+}
+
+.annocell {
+  background: white;
+  padding: 20px 0;
+}
+
+.annocell img {
+  margin: 0 auto;
+  border-radius: 15px;
+  height: 600px;
+}
+
+.eamonn {
+  background: white;
+  padding: 20px 0;
+}
+
+.eamonn img {
+  margin: 0 auto;
+  border-radius: 10px;
+  height: 600px;
+}
+
+.pacman img {
+  margin: 0 auto;
+  border-radius: 15px;
+  height: 400px;
+}
+
+@media only screen and (max-width: 1600px) {
+  .pacman img {
+    height: 350px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .pacman img {
+    height: 290px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .pacman img {
+    height: 200px;
+  }
+}
+
+@media only screen and (max-width: 1800px) {
+  .annocell img {
+    height: 500px;
+  }
+
+  .eamonn img {
+    height: 500px;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .annocell img {
+    height: 400px;
+  }
+
+  .eamonn img {
+    height: 400px;
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  .annocell img {
+    height: 250px;
+  }
+
+  .eamonn img {
+    height: 250px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .annocell img {
+    height: 175px;
+  }
+
+  .eamonn img {
+    height: 175px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .annocell img {
+    height: 100px;
+  }
+
+  .eamonn img {
+    height: 100px;
+  }
+}
+
+#back-button {
+  transition: all 1s cubic-bezier(.23,1,.32,1);
+  z-index: 100;
+	position: absolute;
+	top: 10px;
+  left: 2%;
+	cursor: pointer;
+	height: 120px;
+	width: 120px;
+  border: 0;
+}
+
+@media only screen and (max-width: 700px) {
+  #back-button {
+    height: 80px;
+    width: 80px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  #back-button {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+#cloud {
+  transition: all 1s cubic-bezier(.23,1,.32,1);
+}
+
+#arrow {
+  transition: all 1s cubic-bezier(.23,1,.32,1);
+}
+
+.github-link {
+  height: 33px;
+  margin: 5vh 0 10px 0;
+}
+
+a {
+  border: 2px dashed black;
+  background: black;
+  transition: all 1s cubic-bezier(.23,1,.32,1);
+  position: relative;
+  overflow: hidden;
+  padding: 15px 7.5px;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+#github-logo {
+  transition: all 1s cubic-bezier(.23,1,.32,1);
+  position: absolute;
+  bottom: -9px;
+  height: 72px;
+  width: 72px;
+}
+
+#github-text {
+  transition: all 1s cubic-bezier(.23,1,.32,1);
+  padding-right: 25px;
+  padding-left: 72px;
+}
+
+@media only screen and (max-width: 1300px) {
+  a {
+    padding: 10px 7.5px;
+    font-size: 1rem;
+  }
+
+  #github-logo {
+    bottom: -5px;
+    height: 48px;
+    width: 48px;
+  }
+
+  #github-text {
+    padding-right: 17px;
+    padding-left: 48px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  a {
+    padding: 5px 5px;
+    font-size: 15px;
+  }
+
+  #github-logo {
+    bottom: -5px;
+    height: 36px;
+    width: 36px;
+  }
+
+  #github-text {
+    padding-right: 12px;
+    padding-left: 36px;
+  }
+
+  .github-link {
+    margin: 2.5vh 0 10px 0;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .github {
+    padding: 17.5px 5px;
+    border-radius: 10px;
+  }
+
+  #github-logo {
+    position: relative;
+    top: 17.5px;
+    height: 50px;
+    width: 50px;
+  }
+
+  #github-text {
+    display: none;
+  }
+
+  .github-link {
+    margin: 1vh 0 50px 0;
+  }
+}
+
+
+.github-link {
+  text-align: center;
+}
+
+.highlight {
+  border: none;
+  border-radius: 2px;
+  padding: 0 5px;
+  background: #00ABE9;
+  color: white;
+}

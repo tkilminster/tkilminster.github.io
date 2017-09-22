@@ -1,311 +1,204 @@
+const mq500 = window.matchMedia( "(min-width: 520px)" );
+
+/* Only scroll to the top if the page is refreshed, do not scroll if the page is navigated to */
+if (performance.navigation.type == 1) {
+  window.scrollTo(0, 0);
+}
 
 
+/* If coming back from a project page do not show loading animation for longer than necessary */
+jQuery(window).on('load', function () {
 
-
-$(document).ready(function() {
-
-	window.onbeforeunload = function () {
-		window.scrollTo(0, 0);
-	}
-
-	$(window).disablescroll({
-		handleScrollbar: false
-	});
-
-	loadIntro();
-	textSize();
-
-
-	animateArrow();
-
-	githubHover();
-	linkedInHover();
-	locationHover();
-
-	peopleHover();
-
-	cvHover();
-
-	projectHover();
-
-	linkText();
-
-	moreInfo();
-	
-	$("#down").click(function() {
-		$(window).disablescroll({
-			handleScrollbar: false
-		});
-   		scrollToAnchor('details');
-	});
-
+  var beenBefore = localStorage.getItem('fromSite');
+  if (beenBefore === 'true') {
+    $( '#loaded' ).fadeIn(1000);
+    $( '#loading' ).css('display', 'none');
+    localStorage.setItem('fromSite', false);
+  } else {
+    setTimeout(function() {
+      $( '#loading ').fadeOut(1000);
+      $( '#loaded ').fadeIn(1000, function() {
+        $('body').css('overflow', 'auto');
+      });
+    }, 2000);
+  }
 
 });
 
-function moreInfo() {
-	$("#annoCell").click(function() {
-		$(".more-info").css({display: "block"});
-		$(".more-info").css({left: 0, transition: "1.0s"});
+$( document ).ready(function() {
 
-	})
-
-	$("#remove").click(function() {
-		$(".more-info").css({left: "100%", transition: "1.0s"});
-		$(".more-info").one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
-			function(e) {
-			})
-	})
-
-	$("#remove").hover (
-		function() {
-			$("#remove").css({color: "#00C5E9", transition: "0.5s"});
-		}, function() {
-			$("#remove").css({color: "", transition: "0.5s"})
-		});
-}
-
-function linkText() {
-	var height = "calc(1vh + " + parseInt($("#bio-table").width())*0.0011 + "vh)";
-	
-
-	var bioHeight = $("#bio-column").height();
-	console.log(bioHeight);
-
-	document.getElementById("bio-table").style.fontSize = height;
-	//document.getElementById("links").style.height = bioHeight+"px";
-}
-
-function projectHover() {
-	$("#annoCell").hover (
-		function() {
-			$(this).css('cursor','pointer');
-			$("#anno-img").css({ opacity: 1.0, transition: "1.0s"});
-			$("#anno-img").css({ transform: "scale(1.1)", transition: "1.0s"});
-			$("#anno-text").css({ left: "15%" , transition: "1.0s"});
-			$("#anno-text").css({ opacity: 0.0, transition: "1.0s"});
-		}, function() {
-			$("#anno-img").css({ opacity: 0.7, transition: "1.0s"});
-			$("#anno-img").css({ transform: "scale(1.0)", transition: "1.0s"});
-			$("#anno-text").css({ left: "0%" , transition: "1.0s"});
-			$("#anno-text").css({ opacity: 1.0, transition: "1.0s"});
-		});
-	$("#splitit").hover (
-		function() {
-			$(this).css('cursor','pointer');
-			$("#splitit-img").css({ opacity: 1.0, transition: "1.0s"});
-			$("#splitit-img").css({ transform: "scale(1.1)", transition: "1.0s"});
-			$("#splitit-text").css({ left: "15%" , transition: "1.0s"});
-			$("#splitit-text").css({ opacity: 0.0, transition: "1.0s"});
-		}, function() {
-			$("#splitit-img").css({ opacity: 0.7, transition: "1.0s"});
-			$("#splitit-img").css({ transform: "scale(1.0)", transition: "1.0s"});
-			$("#splitit-text").css({ left: "0%" , transition: "1.0s"});
-			$("#splitit-text").css({ opacity: 1.0, transition: "1.0s"});
-		});
-	$("#organiseme").hover (
-		function() {
-			$(this).css('cursor','pointer');
-			$("#organiseme-img").css({ opacity: 1.0, transition: "1.0s"});
-			$("#organiseme-img").css({ transform: "scale(1.1)", transition: "1.0s"});
-			$("#organiseme-text").css({ left: "15%" , transition: "1.0s"});
-			$("#organiseme-text").css({ opacity: 0.0, transition: "1.0s"});
-		}, function() {
-			$("#organiseme-img").css({ opacity: 0.7, transition: "1.0s"});
-			$("#organiseme-img").css({ transform: "scale(1.0)", transition: "1.0s"});
-			$("#organiseme-text").css({ left: "0%" , transition: "1.0s"});
-			$("#organiseme-text").css({ opacity: 1.0, transition: "1.0s"});
-		});
-}
-
-function peopleHover() {
-	$("#alex").hover (
-		function() {
-			$("#alex").css({ filter: "brightness(125%)", transition: "0.5s"});
-			$("#alex-image").css({ transform: "scale(1.05)", transition: "1.0s"});
-		}, function() {
-			$("#alex").css({ filter: "brightness(100%)", transition: "0.5s"});
-			$("#alex-image").css({ transform: "scale(1.0)", transition: "1.0s"});
-		});
-	$("#aaron").hover (
-		function() {
-			$("#aaron").css({ filter: "brightness(125%)", transition: "0.5s"});
-			$("#aaron-image").css({ transform: "scale(1.05)", transition: "1.0s"});
-		}, function() {
-			$("#aaron").css({ filter: "brightness(100%)", transition: "0.5s"});
-			$("#aaron-image").css({ transform: "scale(1.0)", transition: "1.0s"});
-		});
-	$("#hamish").hover (
-		function() {
-			$("#hamish").css({ filter: "brightness(125%)", transition: "0.5s"});
-			$("#hamish-image").css({ transform: "scale(1.05)", transition: "1.0s"});
-		}, function() {
-			$("#hamish").css({ filter: "brightness(100%)", transition: "0.5s"});
-			$("#hamish-image").css({ transform: "scale(1.0)", transition: "1.0s"});
-		});
-	$("#ed-image").hover (
-		function() {
-			$("#ed-image").css({ filter: "brightness(125%)", transition: "0.5s"});
-			$("#ed-image").css({ transform: "scale(1.05)", transition: "1.0s"});
-		}, function() {
-			$("#ed-image").css({ filter: "brightness(100%)", transition: "0.5s"});
-			$("#ed-image").css({ transform: "scale(1.0)", transition: "1.0s"});
-		});
-}
-
-function cvHover(){
-	$("#cv").hover (
-    function() {
-    	$("#cv").css({ color: "white", transition: "0.75s" });
-    	$("#cv").css({backgroundColor: "#00C5E9", transition: "0.75s"});
+  // Have to unfortunately repeat this code so it willl do hover without window resize
+  if(mq500.matches) {
+    $( '#uglypic' ).hover(function(){
+      $( '.thats-me' ).css('transform', 'scale(1.5, 1.5) rotate(-10deg)');
+      $( '.thats-me').css('left', '330px');
     }, function() {
-    	$("#cv").css({ color: "#00C5E9", transition: "0.75s" });
-    	$("#cv").css({backgroundColor: "white", transition: "0.75s"});
+      $( '.thats-me' ).css('transform', 'rotate(0deg)');
+      $( '.thats-me').css('left', '300px');
     });
-}
-
-function githubHover(){
-	$("#github").hover (
-    function() {
-    	$("#gitUser").css({ color: "white", transition: "0.75s" });
-    	$("#gitLogo").css({ filter: "invert(100%)", transition: "0.75s" });
-    	$("#github").css({backgroundColor: "#00C5E9", transition: "0.75s"});
+  } else {
+    $( '.thats-me').css('left', '175px');
+    $( '#uglypic' ).hover(function(){
+      $( '.thats-me' ).css('transform', 'scale(1.25, 1.25) rotate(-10deg)');
+      $( '.thats-me').css('left', '200px');
     }, function() {
-    	$("#gitUser").css({ color: "black", transition: "0.75s" });
-    	$("#gitLogo").css({ filter: "invert(0%)", transition: "0.75s" });
-    	$("#github").css({backgroundColor: "white", transition: "0.75s"});
-    } 
-	);
-}
+      $( '.thats-me' ).css('transform', 'rotate(0deg)');
+      $( '.thats-me').css('left', '175px');
+    });
+  }
 
-function linkedInHover(){
-	$("#linkedin").hover (
-    function() {
-    	$("#linkedUser").css({ color: "white", transition: "0.75s" });
-    	$("#linkedLogo").css({ filter: "invert(100%)", transition: "0.75s" });
-    	$("#linkedin").css({backgroundColor: "#00C5E9", transition: "0.75s"});
-    }, function() {
-    	$("#linkedUser").css({ color: "black", transition: "0.75s" });
-    	$("#linkedLogo").css({ filter: "invert(0%)", transition: "0.75s" });
-    	$("#linkedin").css({backgroundColor: "white", transition: "0.75s"});
-    } 
-	);
-}
+  /* ALL THE HOVERS ARGHHH */
+$(window).resize(function(){
+  console.log('resize');
+  $( '.thats-me').css('left', '300px');
+    if(mq500.matches) {
+      $( '#uglypic' ).hover(function(){
+        $( '.thats-me' ).css('transform', 'scale(1.5, 1.5) rotate(-10deg)');
+        $( '.thats-me').css('left', '330px');
+      }, function() {
+        $( '.thats-me' ).css('transform', 'rotate(0deg)');
+        $( '.thats-me').css('left', '300px');
+      });
+    } else {
+      $( '.thats-me').css('left', '175px');
+      $( '#uglypic' ).hover(function(){
+        $( '.thats-me' ).css('transform', 'scale(1.25, 1.25) rotate(-10deg)');
+        $( '.thats-me').css('left', '200px');
+      }, function() {
+        $( '.thats-me' ).css('transform', 'rotate(0deg)');
+        $( '.thats-me').css('left', '175px');
+      });
+    }
+  });
 
-function locationHover(){
-	$("#location").hover (
-    function() {
-    	$("#locationText").css({ color: "white", transition: "0.75s" });
-    	$("#locationSymbol").css({ filter: "invert(100%)", transition: "0.75s" });
-    	$("#location").css({backgroundColor: "#00C5E9", transition: "0.75s"});
-    }, function() {
-    	$("#locationText").css({ color: "black", transition: "0.75s" });
-    	$("#locationSymbol").css({ filter: "invert(0%)", transition: "0.75s" });
-    	$("#location").css({backgroundColor: "white", transition: "0.75s"});
-    } 
-	);
-}
+  $( '#linkedin' ).hover(function(){
+    $( '#linkedin-bar' ).css('margin-top', '0px');
+  }, function() {
+    $( '#linkedin-bar' ).css('margin-top', '-10px');
+  });
 
-function scrollToAnchor(aid){
-	var aTag = $("a[name='"+ aid +"']");
+  $( '#github' ).hover(function(){
+    $( '#github-bar' ).css('margin-top', '0px');
+  }, function() {
+    $( '#github-bar' ).css('margin-top', '-10px');
+  });
 
-    $('html,body').animate({scrollTop: aTag.offset().top}, 1500);
+  $( '#email' ).hover(function(){
+    $( '#email-bar' ).css('margin-top', '0px');
+  }, function() {
+    $( '#email-bar' ).css('margin-top', '-10px');
+  });
 
-	setTimeout(function() {
-		$(window).disablescroll("undo");
-	}, 1500);
-}
+  $( '#pacman').hover(function() {
+    hoverProject('pacman', true);
+  }, function() {
+    hoverProject('pacman', false);
+  });
 
+  $( '#annocell').hover(function() {
+    hoverProject('annocell', true);
+  }, function() {
+    hoverProject('annocell', false);
+  });
 
-function animateArrow() {
-	$("#arrow-down").addClass("anim-arrow");
+  $( '#eamonn').hover(function() {
+    hoverProject('eamonn', true);
+  }, function() {
+    hoverProject('eamonn', false);
+  });
 
-	$("#whole-arrow").hover (
-    function() {
-    	$(".arrow-line").css({ opacity: "0.85", transition: "1.0s" });
-    	$(".arrow-line").css({ fill: "grey", transition: "1.0s" });
-    	console.log("ON");
-    }, function() {
-    	$(".arrow-line").css({ opacity: "1", transition: "1.0s" });
-    	$(".arrow-line").css({ fill: "white", transition: "1.0s" });
-    	console.log("OFF");
-    } 
-	);
-
-}
-
-function textSize() {
-	    var fontSizeHeight = $("#white-banner").height()/17;
-	    var fontSizeWidth = $("#white-banner").width()/50;
-	    var fontNumber = Math.min(fontSizeWidth, fontSizeHeight);
-	    var fontSize = parseInt(fontNumber)+"px";
-	    console.log(fontSize);
-	    
-	    $("#info span").css('font-size', fontSize);
-	    if($( window ).width() >= 900 && $( window ).width() <= 1300) {
-	    	//var topPx = "calc(47.5% - " + parseInt($( window ).width()*0.0175)+"px)";
-			console.log($( window ).width() + " wide");
-	    	var topPx = "calc(48% - 15px)";
-	    	var padding = "calc(500px - " + parseInt($( window ).width()*0.3)+"px";
-	    }else if($( window ).width() >= 1300) {
-	    	var topPx = "calc(48.5% - 24px)";
-	    	var padding = "200px";
-	    } else if($( window ).width() >= 2800) {
-	    	console.log("WIDE");
-	    	var topPx = "calc(48.5% - 24px)";
-	    	var padding = "0";
-		} else {
-			var topPx = "calc(48% - 15px)";
-			var padding = "230px";
-			
-		}
-	    //console.log(topPx);
-	    document.getElementById("info").style.top = topPx;
-	    document.getElementById("role").style.paddingLeft = padding;
-	    document.getElementById("name").style.paddingRight = padding;
-
-	    //console.log(scaleFac);
-
-	    //document.getElementById("arrow-down").style.transform = "scale("+scaleFac+")";
-
-	}
-
-function objFade() {
-	$("#info.hidden").fadeIn("slow").removeClass("hidden");
+  //Smooth Scrolling
+  $('a[href*="#"]')
+    .not('[href="#"]')
+    .not('[href="#0"]')
+    .click(function(event) {
+      if (
+        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+        &&
+        location.hostname == this.hostname
+      ) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+          event.preventDefault();
+          $('html, body').animate({
+            scrollTop: target.offset().top
+          }, 1000, function() {
+            var $target = $(target);
+            $target.focus();
+            if ($target.is(":focus")) {
+              return false;
+            } else {
+              $target.attr('tabindex','-1');
+              $target.focus();
+            };
+          });
+        }
+      }
+    });
 
 
-
-    setTimeout(function(){
-    	$("#arrow-down.hidden").fadeIn("slow").removeClass("hidden");
-    	
-    }, 1000);
-
-    setTimeout(function(){
-    	$(".path").fadeIn("slow").removeClass("hidden");
-    	
-    }, 1500);
-
-    setTimeout(function(){
-    	$(".underline-path").fadeIn("fast").removeClass("hidden");
-		$(window).disablescroll("undo");
-    }, 4000);
-
-}
-
-function loadIntro() {
-	var animation = {
-		container: document.getElementById('white-banner'),
-		renderer: 'svg',
-		prerender: true,
-		loop: false,
-		autoplay: true,
-		path: 'data.json'
-	};
-
-	var landAnimation = bodymovin.loadAnimation(animation);
-	landAnimation.addEventListener('complete', objFade);
-}
-
-$(window).resize(function() {
-	textSize();
-	linkText();
 });
+
+/*
+ * Apply the hover animation sequence to any project that has been
+ * set up correctly with the correct naming conventions.
+ */
+function hoverProject(project, enter) {
+  if(enter) {
+    $( '#'+project+'-line' ).css('width', '50%');
+    $( '#'+project+'-line' ).css('opacity', '1', 1000);
+    $( '#'+project+'-title').css('opacity', '1');
+    $( '#'+project+'-title').css('padding-left', '0');
+    $( '#'+project+'-bg').css('bottom', '0');
+    setTimeout(function(){
+      $( '#'+project+'-desc').css('opacity', '1');
+      $( '#'+project+'-desc').css('padding-left', '0');
+    }, 100);
+  } else {
+    $( '#'+project+'-line' ).css('width', '0');
+    $( '#'+project+'-line' ).css('opacity', '0', 1000);
+    $( '#'+project+'-title').css('opacity', '0');
+    $( '#'+project+'-title').css('padding-left', '75px');
+    $( '#'+project+'-bg').css('bottom', '100%');
+    setTimeout(function(){
+      $( '#'+project+'-desc').css('opacity', '0');
+      $( '#'+project+'-desc').css('padding-left', '75px');
+    }, 100);
+  }
+}
+
+window.addEventListener('scroll', function() {
+
+  //About section
+  inView('.me-container');
+  inView('.text-container .title');
+  inView('#intro');
+  inView('#why');
+  inView('#why-ans');
+  inView('#fave');
+  inView('#fave-ans');
+  inView('#dress');
+  inView('#dress-ans');
+  inView('.cv-button');
+
+  //Work Section
+  inView('#work-title');
+  inView('#eamonn');
+  inView('#annocell');
+  inView('#pacman');
+
+  //Contact Section
+  inView('#contact h1');
+  inView('.contact-buttons');
+
+});
+
+// Remove hidden class if in viewport
+function inView(element) {
+  $(element).on('inview', function(event, isInView) {
+    if (isInView) {
+      $(element).removeClass('hidden');
+    }
+  });
+}
