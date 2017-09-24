@@ -351,19 +351,19 @@ nav .row:hover {
 }
 
 #eamonn {
-  background: url('../images/eamonn.png') no-repeat;
+  background: url('../images/eamonn.jpg') no-repeat;
   background-size: cover;
   overflow: hidden;
 }
 
 #pacman {
-  background: url('../images/pacman.png') no-repeat;
+  background: url('../images/pacman.jpg') no-repeat;
   background-size: cover;
   overflow: hidden;
 }
 
 #annocell {
-  background: url('../images/annoCell.png') no-repeat;
+  background: url('../images/annoCell.jpg') no-repeat;
   background-size: cover;
   overflow: hidden;
 }
@@ -477,17 +477,17 @@ nav .row:hover {
 }
 
 #linkedin {
-  background: url(../images/Linkedin.png) no-repeat;
+  background: url(../images/Linkedin.jpg) no-repeat;
   background-size: cover;
 }
 
 #email {
-  background: url(../images/Email.png) no-repeat;
+  background: url(../images/Email.jpg) no-repeat;
   background-size: cover;
 }
 
 #github {
-  background: url(../images/Github.png) no-repeat;
+  background: url(../images/Github.jpg) no-repeat;
   background-size: cover;
 }
 
