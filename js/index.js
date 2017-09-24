@@ -11,15 +11,13 @@ $(window).on("load", function() {
 
   var beenBefore = localStorage.getItem('fromSite');
   if (beenBefore === 'true') {
-    $( '#loaded' ).fadeIn(1000);
-    $( '#loading' ).css('display', 'none');
+    $( '#loading' ).fadeOut(1000);
+    $( '#loaded' ).removeClass('loading');
     localStorage.setItem('fromSite', false);
   } else {
     setTimeout(function() {
       $( '#loading ').fadeOut(1000);
-      $( '#loaded ').fadeIn(1000, function() {
-        $('body').css('overflow', 'auto');
-      });
+      $( '#loaded' ).removeClass('loading');
     }, 2000);
   }
 

@@ -535,7 +535,7 @@ nav .row:hover {
   position: absolute;
   height: 100vh;
   width: 100%;
-  z-index: 50;
+  z-index: 200;
 }
 
 #loading svg {
@@ -557,8 +557,9 @@ nav .row:hover {
   }
 }
 
-#loaded {
-  display: none;
+.loading {
+  height: 100vh;
+  overflow: hidden;
 }
 
 /* --- FOOTER PORTION OF CSS --- */
