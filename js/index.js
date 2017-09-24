@@ -7,7 +7,7 @@ if (performance.navigation.type == 1) {
 
 
 /* If coming back from a project page do not show loading animation for longer than necessary */
-window.onload = function () {
+$(window).on("load", function() {
 
   var beenBefore = localStorage.getItem('fromSite');
   if (beenBefore === 'true') {
@@ -23,7 +23,7 @@ window.onload = function () {
     }, 2000);
   }
 
-};
+});
 
 $( document ).ready(function() {
 
