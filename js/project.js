@@ -9,9 +9,9 @@ function goBack() {
 jQuery(window).on('load', function () {
 
     $( '#loading' ).fadeOut(1000);
-    $( '#loaded ').fadeIn(1000, function() {
-      $('body').css('overflow', 'auto');
-    });
+    setTimeout(function() {
+      $( '#loaded' ).removeClass('loading');
+    }, 1000);
 
 });
 
