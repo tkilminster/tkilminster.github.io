@@ -35,59 +35,74 @@
 	</head>
 	<body>
 		<main>
-			<div class='container'>
-				<svg version="1.1"
-					 id="back-button" onclick='goBack()' inkscape:version="0.48.3.1 r9886" sodipodi:docname="cloud_font_awesome.svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
-					 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 612 792"
-					 style="enable-background:new 0 0 612 792;" xml:space="preserve">
-				<style type="text/css">
-					.st0{fill:#FFFFFF;stroke:#00ABE9;stroke-width:6;stroke-miterlimit:10;}
-					.st1{fill:#00ABE9;}
-				</style>
-				<sodipodi:namedview  bordercolor="#666666" borderopacity="1" gridtolerance="10" guidetolerance="10" id="namedview2995" inkscape:current-layer="svg2989" inkscape:cx="960" inkscape:cy="896" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-height="480" inkscape:window-maximized="0" inkscape:window-width="640" inkscape:window-x="0" inkscape:window-y="25" inkscape:zoom="0.13169643" objecttolerance="10" pagecolor="#ffffff" showgrid="false">
-					</sodipodi:namedview>
-				<g id="g2991" transform="matrix(1,0,0,-1,15.186441,1405.4576)">
-					<path id="cloud" inkscape:connector-curvature="0" class="st0" d="M592.1,954.5c0-33.3-11.8-61.7-35.3-85.2S504.9,834,471.6,834
-						H130.1c-38.7,0-71.8,13.8-99.3,41.3s-41.3,60.6-41.3,99.3c0,27.6,7.4,52.9,22.3,75.8s34.4,40,58.7,51.3c-0.4,5.9-0.6,10.4-0.6,13.5
-						c0,44.4,15.7,82.2,47.1,113.6s69.3,47.1,113.6,47.1c33.1,0,63-9.2,89.9-27.6s46.5-42.5,58.8-72.2c14.6,13,32,19.5,52.1,19.5
-						c22.2,0,41.1-7.8,56.8-23.5c15.7-15.7,23.5-34.6,23.5-56.8c0-15.7-4.3-30.1-12.9-43.3c27-6.3,49.3-20.3,66.8-42.2
-						C583.3,1007.8,592.1,982.8,592.1,954.5z"/>
-				</g>
-				<g>
-					<path id='arrow' class="st1" d="M242.6,288.5l-94.2,94.2c-7.3,7.3-7.3,19.3,0,26.6l94.2,94.2c7.3,7.3,19.3,7.3,26.6,0c7.3-7.3,7.3-19.3,0-26.6
-						l-62-62h180.5c10.4,0,18.8-8.4,18.8-18.8s-8.4-18.8-18.8-18.8H207.2l62-62c3.7-3.7,5.5-8.5,5.5-13.3s-1.8-9.6-5.5-13.3
-						C261.8,281.2,249.9,281.2,242.6,288.5z"/>
-				</g>
+			<div id='loading'>
+				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					 viewBox="0 0 2560 1440" style="enable-background:new 0 0 2560 1440;" xml:space="preserve">
+					<g id="g2991" transform="matrix(1,0,0,-1,15.186441,1405.4576)">
+						<path id="path2993" inkscape:connector-curvature="0" style="fill:none;stroke:#FFFFFF;stroke-width:6;stroke-miterlimit:10;" d="
+							M1695.8,719.8c0-47.6-16.9-88.3-50.5-121.9s-74.2-50.5-121.9-50.5h-488.5c-55.4,0-102.7,19.7-142,59.1
+							c-39.3,39.3-59.1,86.7-59.1,142c0,39.5,10.6,75.7,31.9,108.4c21.3,32.8,49.2,57.2,84,73.4c-0.6,8.4-0.9,14.9-0.9,19.3
+							c0,63.5,22.5,117.6,67.4,162.5s99.1,67.4,162.5,67.4c47.3,0,90.1-13.2,128.6-39.5c38.5-26.3,66.5-60.8,84.1-103.3
+							c20.9,18.6,45.8,27.9,74.5,27.9c31.8,0,58.8-11.2,81.3-33.6s33.6-49.5,33.6-81.3c0-22.5-6.2-43.1-18.5-61.9
+							c38.6-9,70.5-29,95.6-60.4C1683.2,796.1,1695.8,760.3,1695.8,719.8z"/>
+					</g>
 				</svg>
-				<h1>AnnoCell</h1>
-				<div class='text-container'>
-					<div class='text'>
-						<span class='lead'>Collaboration is key.</span>
-						<p>For my 3rd year dissertation project I decided I was going to develop a desktop web application that would enable collaborative annotation of large multi-gigapxel cancer images by pathologists. I named it AnnoCell.</p>
-						<p>The solution utilised a PHP backend and then a front-end designed with usability in mind. Several JavaScript libraries were used in order to view the images and a C++ application was used to pre-process the images upon upload.</p>
+			</div>
+			<div id='loaded'>
+				<div class='container'>
+					<svg version="1.1"
+						 id="back-button" onclick='goBack()' inkscape:version="0.48.3.1 r9886" sodipodi:docname="cloud_font_awesome.svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
+						 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 612 792"
+						 style="enable-background:new 0 0 612 792;" xml:space="preserve">
+					<style type="text/css">
+						.st0{fill:#FFFFFF;stroke:#00ABE9;stroke-width:6;stroke-miterlimit:10;}
+						.st1{fill:#00ABE9;}
+					</style>
+					<sodipodi:namedview  bordercolor="#666666" borderopacity="1" gridtolerance="10" guidetolerance="10" id="namedview2995" inkscape:current-layer="svg2989" inkscape:cx="960" inkscape:cy="896" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-height="480" inkscape:window-maximized="0" inkscape:window-width="640" inkscape:window-x="0" inkscape:window-y="25" inkscape:zoom="0.13169643" objecttolerance="10" pagecolor="#ffffff" showgrid="false">
+						</sodipodi:namedview>
+					<g id="g2991" transform="matrix(1,0,0,-1,15.186441,1405.4576)">
+						<path id="cloud" inkscape:connector-curvature="0" class="st0" d="M592.1,954.5c0-33.3-11.8-61.7-35.3-85.2S504.9,834,471.6,834
+							H130.1c-38.7,0-71.8,13.8-99.3,41.3s-41.3,60.6-41.3,99.3c0,27.6,7.4,52.9,22.3,75.8s34.4,40,58.7,51.3c-0.4,5.9-0.6,10.4-0.6,13.5
+							c0,44.4,15.7,82.2,47.1,113.6s69.3,47.1,113.6,47.1c33.1,0,63-9.2,89.9-27.6s46.5-42.5,58.8-72.2c14.6,13,32,19.5,52.1,19.5
+							c22.2,0,41.1-7.8,56.8-23.5c15.7-15.7,23.5-34.6,23.5-56.8c0-15.7-4.3-30.1-12.9-43.3c27-6.3,49.3-20.3,66.8-42.2
+							C583.3,1007.8,592.1,982.8,592.1,954.5z"/>
+					</g>
+					<g>
+						<path id='arrow' class="st1" d="M242.6,288.5l-94.2,94.2c-7.3,7.3-7.3,19.3,0,26.6l94.2,94.2c7.3,7.3,19.3,7.3,26.6,0c7.3-7.3,7.3-19.3,0-26.6
+							l-62-62h180.5c10.4,0,18.8-8.4,18.8-18.8s-8.4-18.8-18.8-18.8H207.2l62-62c3.7-3.7,5.5-8.5,5.5-13.3s-1.8-9.6-5.5-13.3
+							C261.8,281.2,249.9,281.2,242.6,288.5z"/>
+					</g>
+					</svg>
+					<h1>AnnoCell</h1>
+					<div class='text-container'>
+						<div class='text'>
+							<span class='lead'>Collaboration is key.</span>
+							<p>For my 3rd year dissertation project I decided I was going to develop a desktop web application that would enable collaborative annotation of large multi-gigapxel cancer images by pathologists. I named it AnnoCell.</p>
+							<p>The solution utilised a PHP backend and then a front-end designed with usability in mind. Several JavaScript libraries were used in order to view the images and a C++ application was used to pre-process the images upon upload.</p>
 
-						<div class='carousel annocell'>
-							<div class='content'>
-								<img src='images/annocell/annocell1.jpg'>
+							<div class='carousel annocell'>
+								<div class='content'>
+									<img src='images/annocell/annocell1.jpg'>
+								</div>
+								<div class='content'>
+									<img src='images/annocell/annocell2.jpg'>
+								</div>
+								<div class='content'>
+									<img src='images/annocell/annocell3.jpg'>
+								</div>
+								<div class='content'>
+									<img src='images/annocell/annocell4.jpg'>
+								</div>
+								<div class='content'>
+									<img src='images/annocell/annocell5.jpg'>
+								</div>
 							</div>
-							<div class='content'>
-								<img src='images/annocell/annocell2.jpg'>
-							</div>
-							<div class='content'>
-								<img src='images/annocell/annocell3.jpg'>
-							</div>
-							<div class='content'>
-								<img src='images/annocell/annocell4.jpg'>
-							</div>
-							<div class='content'>
-								<img src='images/annocell/annocell5.jpg'>
-							</div>
+
+							<p>The application would be used where a pathologist could upload image(s) to the application and invite other, specific, users to view the images, annotate on the images and contribute to discussion threads on certain features of each image. The application would help with diagnosis, allow a faster spread of knowledge and, ultimately, allow pathologists to be better connected on cases.</p>
+							<p>The application also allowed annotations to be downloaded for future use, a stretch-goal I had in mind was using these to perhaps begin training an algorithm to detect these common features of interest.</p>
+							<p>Note: The interface may look bare currently but that is because most of the content has had to be stripped due to its sensitive nature.</p>
+							<h3>- This project won 'Best Third Year MEng Project' awarded by the British Computing Society.</h3>
 						</div>
-
-						<p>The application would be used where a pathologist could upload image(s) to the application and invite other, specific, users to view the images, annotate on the images and contribute to discussion threads on certain features of each image. The application would help with diagnosis, allow a faster spread of knowledge and, ultimately, allow pathologists to be better connected on cases.</p>
-						<p>The application also allowed annotations to be downloaded for future use, a stretch-goal I had in mind was using these to perhaps begin training an algorithm to detect these common features of interest.</p>
-						<p>Note: The interface may look bare currently but that is because most of the content has had to be stripped due to its sensitive nature.</p>
-						<h3>- This project won 'Best Third Year MEng Project' awarded by the British Computing Society.</h3>
 					</div>
 				</div>
 			</div>

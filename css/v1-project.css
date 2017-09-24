@@ -3,6 +3,37 @@
 @font-face { font-family: Raleway; src: url('../fonts/Raleway-Regular.ttf'); }
 @font-face { font-family: JustTellMeWhat; src: url('../fonts/Just tell me what regular (Version 2).otf'); }
 
+#loading {
+  overflow: hidden;
+  background-image: linear-gradient(#00ABE9, #00C5E9);
+  display: flex;
+  align-items: center;
+  background-color: none;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: 200;
+}
+
+#loading svg {
+  position: absolute;
+  margin: 0 auto;
+  display: block;
+  height: 100vh;
+  width: 100%;
+}
+
+#path2993 {
+  stroke-dasharray: 50;
+  animation: dash 2.5s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+
 .container {
   width: 100%;
   min-height: 100vh;
